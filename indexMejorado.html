@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto de Factura Electrónica MEJORADO</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        h1 {
+            color: #222;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .link-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .link-list li {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 10px 0;
+            padding: 10px;
+        }
+
+        .link-list a {
+            text-decoration: none;
+            color: #0056b3;
+            font-weight: bold;
+        }
+
+        .link-list a:hover, .link-list a:focus {
+            color: #004494;
+            outline: 2px solid #0056b3;
+        }
+
+        .file-type {
+            font-style: italic;
+            color: #555;
+        }
+
+        .section-title {
+            background-color: #e0e0e0;
+            padding: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>XSLT FACTURAS</h1>
+        <nav>
+            <a href="#factura-flores">Factura Flores</a> |
+            <a href="#factura-moviles">Factura Móviles</a>
+        </nav>
+    </header>
+    
+    <main class="container">
+        <p>Selecciona uno de los siguientes archivos para ver su contenido o el resultado de la transformación:</p>
+
+        <section id="factura-flores" aria-labelledby="flores-title">
+            <h2 id="flores-title">Factura Flores</h2>
+            <ul class="link-list">
+                <li>
+                    <a href="factura.xml" target="_blank" aria-label="Abrir XML de Factura Flores">XML de Factura Flores</a>
+                    <span class="file-type">(XML)</span>
+                </li>
+                <li>
+                    <a href="transformacion.xslt" target="_blank" aria-label="Abrir XSLT de Factura Flores">XSLT de Factura Flores</a>
+                    <span class="file-type">(XSLT)</span>
+                </li>
+                <li>
+                    <a href="factura.html" target="_blank" aria-label="Abrir HTML de Factura Flores">HTML de Factura Flores (Resultado de la transformación)</a>
+                    <span class="file-type">(HTML)</span>
+                </li>
+            </ul>
+        </section>
+
+        <section id="factura-moviles" aria-labelledby="moviles-title">
+            <h2 id="moviles-title">Factura Móviles</h2>
+            <ul class="link-list">
+                <li>
+                    <a href="factura1.xml" target="_blank" aria-label="Abrir XML de Factura Móviles">XML de Factura Móviles</a>
+                    <span class="file-type">(XML)</span>
+                </li>
+                <li>
+                    <a href="transformacion1.xslt" target="_blank" aria-label="Abrir XSLT de Factura Móviles">XSLT de Factura Móviles</a>
+                    <span class="file-type">(XSLT)</span>
+                </li>
+                <li>
+                    <a href="factura1.html" target="_blank" aria-label="Abrir HTML de Factura Móviles">HTML de Factura Móviles (Resultado de la transformación)</a>
+                    <span class="file-type">(HTML)</span>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>Para más detalles, consulta el <a href="README.md" download aria-label="Descargar archivo README">README.md</a>.</p>
+    </footer>
+</body>
+</html>

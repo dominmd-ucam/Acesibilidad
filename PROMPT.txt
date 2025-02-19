@@ -1,0 +1,41 @@
+PROMPT DE ACCESIBILIDAD:
+
+Objetivo:
+Optimiza el siguiente código HTML para que cumpla con los estándares de accesibilidad de WCAG 2.2 (niveles A, AA y, si es posible, AAA) y mejore la experiencia de navegación para usuarios con discapacidad.
+
+Instrucciones detalladas:
+Mejorar la estructura semántica:
+
+Utiliza etiquetas HTML5 adecuadas (<header>, <main>, <section>, <footer>).
+Asegura que los encabezados (<h1>, <h2>, etc.) estén en el orden correcto y sean significativos.
+Reemplaza <div> y <span> cuando sea posible con elementos semánticos adecuados.
+Añadir y corregir atributos ARIA:
+
+Asegura que los elementos interactivos (botones, formularios, menús, modales) incluyan atributos ARIA adecuados (aria-label, aria-labelledby, aria-hidden, etc.).
+Usa role="button", role="alert", role="dialog", etc., donde corresponda.
+Agrega aria-live="polite" en elementos de contenido dinámico.
+Optimizar imágenes y contenido visual:
+
+Añade descripciones significativas en los atributos alt de las imágenes.
+Si una imagen es decorativa, usa alt="" o aria-hidden="true".
+Para iconos SVG, asegúrate de que tengan aria-hidden="true" si son decorativos o aria-label si transmiten información.
+Mejorar formularios y controles de entrada:
+
+Asegura que todos los inputs tengan etiquetas <label> correctamente asociadas.
+Usa aria-describedby para proporcionar descripciones adicionales a campos complejos.
+Implementa mensajes de error accesibles (aria-live="assertive" para alertas).
+Optimizar enlaces y botones:
+
+Asegura que los enlaces tengan texto significativo (evita "haz clic aquí").
+Usa aria-label en botones y enlaces con iconos sin texto visible.
+Evita el uso de tabindex="-1" en elementos interactivos.
+Navegación y accesibilidad por teclado:
+
+Verifica que todos los elementos interactivos sean accesibles con Tab.
+Asegura que los :focus sean visibles y tengan suficiente contraste.
+Implementa skip links para facilitar la navegación con teclado.
+Contraste y legibilidad:
+
+Mejora el contraste de color según las normas WCAG 2.2 (mínimo 4.5:1 para texto).
+Usa unidades relativas (rem, em, vh, vw) en lugar de píxeles fijos para mejorar la escalabilidad.
+Asegura que el tamaño del texto no sea inferior a 16px para facilitar la lectura.

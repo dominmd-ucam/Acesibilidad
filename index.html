@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparador de Código</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/xml/xml.min.js"></script>
+    <style>
+        body { 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        .editor-container, .comparison-container, .prompt-container { 
+            display: flex; 
+            width: 100%; 
+            max-width: 1200px; 
+            gap: 20px; 
+            justify-content: center; 
+        }
+
+        .editor-container > div, .comparison-container > div {
+            width: 48%; /* Ajuste para que ambos tengan el mismo ancho */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .editor { 
+            width: 100%; /* Ocupa todo el ancho del contenedor padre */
+            height: 400px; 
+            border: 1px solid #ccc;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .section {
+            display: flex;
+            flex-direction: column;
+            width: 100%; /* Ocupa todo el ancho del contenedor padre */
+            padding: 10px;
+        }
+
+        pre { 
+            background-color: #f4f4f4; 
+            padding: 10px; 
+            border: 1px solid #ccc; 
+            overflow-x: auto; 
+            white-space: pre-wrap; 
+            word-wrap: break-word;
+            margin-bottom: 10px;
+        }
+
+        .title-section {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .prompt-container {
+            margin-top: 20px; /* Espacio arriba */
+        }
+
+        .prompt-container textarea {
+            width: 100%;
+            height: 300px;
+            padding: 10px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            background-color: #f4f4f4;
+            resize: vertical; /* Permite redimensionar verticalmente */
+        }
+    </style>
+</head>
+<body>
+    <h2>Comparador de Código</h2>
+
+    <div class="editor-container">
+        <div>
+            <h3>HTML No Mejorado</h3>
+            <textarea id="code1" class="editor"></textarea>
+        </div>
+
+        <div>
+            <h3>HTML Mejorado</h3>
+            <textarea id="code2" class="editor"></textarea>
+        </div>
+    </div>
+
+    <div class="comparison-container">
+        <!-- Sección de Código Antiguo -->
+        <div class="section">
+            <div class="title-section">Código Antiguo</div>
+            <pre>
+&lt;div class="container"&gt;
+&lt;/div&gt;
+            </pre>
+            <pre>
+&lt;div class="footer"&gt;
+&lt;/div&gt;
+            </pre>
+            <pre>
+No existía navegación interna.
+            </pre>
+            <pre>
+&lt;section id="factura-flores"&gt;
+    &lt;h2&gt;Factura Flores&lt;/h2&gt;
+&lt;/section&gt;
+            </pre>
+            <pre>
+&lt;a href="factura.xml" target="_blank"&gt;XML de Factura Flores&lt;/a&gt;
+            </pre>
+            <pre>
+.link-list a:hover {
+    color: #007bff;
+}
+            </pre>
+            <pre>
+.file-type {
+    color: #777;
+}
+            </pre>
+        </div>
+
+        <!-- Sección de Código Mejorado -->
+        <div class="section">
+            <div class="title-section">Código Mejorado</div>
+            <pre>
+&lt;main class="container"&gt;
+&lt;/main&gt;
+            </pre>
+            <pre>
+&lt;footer&gt;
+&lt;/footer&gt;
+            </pre>
+            <pre>
+&lt;nav&gt;
+    &lt;a href="#factura-flores"&gt;Factura Flores&lt;/a&gt; |
+    &lt;a href="#factura-moviles"&gt;Factura Móviles&lt;/a&gt;
+&lt;/nav&gt;
+            </pre>
+            <pre>
+&lt;section id="factura-flores" aria-labelledby="flores-title"&gt;
+    &lt;h2 id="flores-title"&gt;Factura Flores&lt;/h2&gt;
+&lt;/section&gt;
+            </pre>
+            <pre>
+&lt;a href="factura.xml" target="_blank" aria-label="Abrir XML de Factura Flores"&gt;XML de Factura Flores&lt;/a&gt;
+            </pre>
+            <pre>
+.link-list a:hover, .link-list a:focus {
+    color: #004494;
+    outline: 2px solid #0056b3;
+}
+            </pre>
+            <pre>
+.file-type {
+    color: #555;
+}
+            </pre>
+        </div>
+    </div>
+
+    <!-- Nueva sección para el prompt -->
+    <div class="prompt-container">
+        <div class="section">
+            <div class="title-section">Prompt de Accesibilidad</div>
+            <textarea id="prompt" readonly>
+
+Objetivo:
+Optimiza el siguiente código HTML para que cumpla con los estándares de accesibilidad de WCAG 2.2 (niveles A, AA y, si es posible, AAA) y mejore la experiencia de navegación para usuarios con discapacidad.
+
+Instrucciones detalladas:
+Mejorar la estructura semántica:
+
+Utiliza etiquetas HTML5 adecuadas (<header>, <main>, <section>, <footer>).
+Asegura que los encabezados (<h1>, <h2>, etc.) estén en el orden correcto y sean significativos.
+Reemplaza <div> y <span> cuando sea posible con elementos semánticos adecuados.
+Añadir y corregir atributos ARIA:
+
+Asegura que los elementos interactivos (botones, formularios, menús, modales) incluyan atributos ARIA adecuados (aria-label, aria-labelledby, aria-hidden, etc.).
+Usa role="button", role="alert", role="dialog", etc., donde corresponda.
+Agrega aria-live="polite" en elementos de contenido dinámico.
+Optimizar imágenes y contenido visual:
+
+Añade descripciones significativas en los atributos alt de las imágenes.
+Si una imagen es decorativa, usa alt="" o aria-hidden="true".
+Para iconos SVG, asegúrate de que tengan aria-hidden="true" si son decorativos o aria-label si transmiten información.
+Mejorar formularios y controles de entrada:
+
+Asegura que todos los inputs tengan etiquetas <label> correctamente asociadas.
+Usa aria-describedby para proporcionar descripciones adicionales a campos complejos.
+Implementa mensajes de error accesibles (aria-live="assertive" para alertas).
+Optimizar enlaces y botones:
+
+Asegura que los enlaces tengan texto significativo (evita "haz clic aquí").
+Usa aria-label en botones y enlaces con iconos sin texto visible.
+Evita el uso de tabindex="-1" en elementos interactivos.
+Navegación y accesibilidad por teclado:
+
+Verifica que todos los elementos interactivos sean accesibles con Tab.
+Asegura que los :focus sean visibles y tengan suficiente contraste.
+Implementa skip links para facilitar la navegación con teclado.
+Contraste y legibilidad:
+
+Mejora el contraste de color según las normas WCAG 2.2 (mínimo 4.5:1 para texto).
+Usa unidades relativas (rem, em, vh, vw) en lugar de píxeles fijos para mejorar la escalabilidad.
+Asegura que el tamaño del texto no sea inferior a 16px para facilitar la lectura.
+            </textarea>
+        </div>
+    </div>
+
+    <script>
+        function cargarCodigo(url, editor) {
+            fetch(url)
+                .then(response => response.text())
+                .then(data => editor.setValue(data))
+                .catch(error => editor.setValue("Error al cargar archivo: " + error));
+        }
+
+        let editor1 = CodeMirror.fromTextArea(document.getElementById("code1"), {
+            mode: "xml", lineNumbers: true, theme: "default"
+        });
+
+        let editor2 = CodeMirror.fromTextArea(document.getElementById("code2"), {
+            mode: "xml", lineNumbers: true, theme: "default"
+        });
+
+        // Cargar los archivos locales
+        cargarCodigo("indexNOmejorado.html", editor1);
+        cargarCodigo("indexMejorado.html", editor2);
+    </script>
+</body>
+</html>
